@@ -13,8 +13,6 @@ git clone https://github.com/preboot/angular2-webpack.git $1
 cd $1
 mkdir _public && cd _public && mkdir www
 npm install
-npm install --save ng2-bootstrap
-yes Y | typings install moment --save
 npm install --save jquery
 sudo npm install -g tsd
 tsd install jquery --save
