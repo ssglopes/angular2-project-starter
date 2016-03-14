@@ -12,9 +12,27 @@ then
 
 else 
 
+  if [ -d /var/www/app ] 
+  then
+    # directory does exist
+  else 
+    mkdir /var/www/app        
+  fi
+  
+  if [ -f /etc/apache2/sites-available/app.conf ] 
+  then
+    # file does exist
+  else 
+    # download the apache app.conf into sites-available, enable it and reload apache2
+    sudo wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/app.conf -P /etc/apache2/sites-available/ && a2ensite app.conf && service apache2 reload
+  fi
+  
   # directory does not exist so let's start basic angular 2 installation
+  echo '127.0.0.1    www.'$2'.app' | sudo tee -a /etc/hosts 
+  echo 'Added to /etc/hosts file!'
   
   cd /var/www/app
+
   git clone https://github.com/preboot/angular2-webpack.git $1
   cd $1  
   
