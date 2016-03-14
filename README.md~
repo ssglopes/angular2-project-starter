@@ -9,7 +9,7 @@ The command will download a .sh script and execute it.</p>
 The script creates an app directory inside /var/www if it's not created.
 It will also install a virtual host into the /etc/apache2 directory if the app.conf is not found.
 It will add the projectname to the /etc/hosts file.
-It will start download all required files needed for the angular 2 project inside /var/www/app/<project-name>/
+It will start download all required files needed for the angular 2 project inside /var/www/app/<code><project-name></code>/
 </p>
 <p>
 The script can be executed again to just use a different version of bootstrap eg. 3 or 4. 
