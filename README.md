@@ -20,9 +20,7 @@ In this case it will modify some files and remove package not longer needed foll
 <li>Replace [bootstrap-version(int)] below with the bootstrap version to use for the project, either 3 or 4.</li>
 </ul>
 Open a terminal and execute:<br />
-<code>
-wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/install.angular2.project.sh -P /var/www/ && chmod +x /var/www/install.angular2.project.sh && ./install.angular2.project.sh [project-name(string)] [bootstrap-version(int)]
-</code>
+<code>wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/install.angular2.project.sh -P /var/www/ && chmod +x /var/www/install.angular2.project.sh && ./install.angular2.project.sh [project-name(string)] [bootstrap-version(int)]</code>
 
 <p>
 After execution has finished open a browser and go to either:<br />
