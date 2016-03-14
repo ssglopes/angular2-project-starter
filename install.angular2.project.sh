@@ -21,14 +21,8 @@ else
   then
     # file does exist
   else
-    # this declares that current user is a sudoer
-    sudo tee /etc/sudoers.d/$USER <<END
-    END 
     # download the apache app.conf into sites-available, enable it and reload apache2
     sudo wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/app.conf -P /etc/apache2/sites-available/ && sudo a2ensite app.conf && sudo service apache2 reload
-    # then to remove the sudo access from the current user
-    sudo /bin/rm /etc/sudoers.d/$USER
-    sudo -k  
   fi
   
   # directory does not exist so let's start basic angular 2 installation
