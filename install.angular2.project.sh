@@ -24,7 +24,7 @@ else
     # file does exist
   else 
     # download the apache app.conf into sites-available, enable it and reload apache2
-    sudo wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/app.conf -P /etc/apache2/sites-available/ && a2ensite app.conf && service apache2 reload
+    sudo wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/app.conf -P /etc/apache2/sites-available/ && sudo a2ensite app.conf && sudo service apache2 reload
   fi
   
   # directory does not exist so let's start basic angular 2 installation
