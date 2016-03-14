@@ -29,7 +29,14 @@ For transpiled site: http://www.[project-name(string)].app
 </p>
 
 <strong>Credits</strong><br />
-<p>angular2-webpack: https://github.com/preboot/angular2-webpack</p>
+<ul>
+<li>angular2-webpack: https://github.com/preboot/angular2-webpack</li>
+<li>ng2-bootstrap: https://github.com/valor-software/ng2-bootstrap</li>
+<li>bootstrap 3: https://github.com/twbs/bootstrap</li>
+<li>bootstrap 4: https://github.com/twbs/bootstrap/tree/v4-dev</li>
+<li>Fontawesome: https://github.com/FortAwesome/Font-Awesome</li>
+<li>And all others not mentioned here.</li>
+</ul>
 
 <strong>License</strong><br />
 <p><a href="https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/LICENSE">MIT</a></p>
