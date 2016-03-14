@@ -24,7 +24,7 @@ Open a terminal and execute:<br />
 
 <p>
 After execution has finished open a browser and go to either:<br />
-For developement against webpack server: http://localhost:8080/<br />
+For development against webpack server: http://localhost:8080/<br />
 For transpiled site: http://www.[project-name(string)].app
 </p>
 
