@@ -12,17 +12,27 @@ else
 
   if [ -d /var/www/app ] 
   then
+  
     # directory does exist
+    echo 'Directory /var/www/app does exist!'
+  
   else 
+ 
     mkdir /var/www/app        
+  
   fi
   
   if [ -f /etc/apache2/sites-available/app.conf ] 
   then
+  
     # file does exist
+    echo 'File /etc/apache2/sites-available/app.conf does exist!'
+  
   else
+  
     # download the apache app.conf into sites-available, enable it and reload apache2
     sudo wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/app.conf -P /etc/apache2/sites-available/ && sudo a2ensite app.conf && sudo service apache2 reload
+  
   fi
   
   # directory does not exist so let's start basic angular 2 installation
