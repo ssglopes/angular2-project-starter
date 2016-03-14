@@ -36,7 +36,7 @@ else
   fi
   
   # directory does not exist so let's start basic angular 2 installation
-  echo '127.0.0.1    www.'$2'.app' | sudo tee -a /etc/hosts 
+  echo '127.0.0.1    www.'$1'.app' | sudo tee -a /etc/hosts 
   echo 'Added to /etc/hosts file!'
   
   cd /var/www/app
