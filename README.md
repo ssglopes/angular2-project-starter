@@ -7,23 +7,15 @@
 <a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> in case using bootstrap 4. Bootstrap 3 uses 
 <a href="http://getbootstrap.com/components/" target="_blank">Glyphicons</a>.</p>
 
-<h3>Installation</h3>
-<p>Make sure before executing the command below that /var/www is writable.<br />
-The command will download a .sh script and execute it.</p>
-
 <h3>What does the script?</h3>
 <p>The script creates an app directory inside /var/www if it's not created.
 It will also install a virtual host into the /etc/apache2 directory if the app.conf is not found.
 It will add the projectname to the /etc/hosts file.
 It will start download all required files needed for the angular 2 project inside /var/www/app/[project-name(string)]/</p>
 
-<h3>Toggle between bootstrap 3 and 4</h3>
-<p>To switch between bootstrap versions for the created project, executed the script again. 
-Only some files will be modified and unneeded packages will be removed followed by downloading newly required packages from npm.</p>
-<ul>
-<li>Replace [project-name(string)] below with the project name.</li>
-<li>Replace [bootstrap-version(int)] below with the bootstrap version to use for the project, either 3 or 4.</li>
-</ul>
+<h3>Installation</h3>
+<p>Make sure before executing the command below that /var/www is writable.<br />
+The command will download a .sh script and execute it.</p>
 <p>
 Open a terminal and execute:<br />
 <code>wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/install.angular2.project.sh -P /var/www/ && chmod +x /var/www/install.angular2.project.sh && ./install.angular2.project.sh [project-name(string)] [bootstrap-version(int)]</code>
@@ -33,6 +25,14 @@ After execution has finished open a browser and go to either:<br />
 For development against webpack server: http://localhost:8080/<br />
 For transpiled site: http://www.[project-name(string)].app
 </p>
+
+<h3>Toggle between bootstrap 3 and 4</h3>
+<p>To switch between bootstrap versions for the created project, executed the script again. 
+Only some files will be modified and unneeded packages will be removed followed by downloading newly required packages from npm.</p>
+<ul>
+<li>Replace [project-name(string)] below with the project name.</li>
+<li>Replace [bootstrap-version(int)] below with the bootstrap version to use for the project, either 3 or 4.</li>
+</ul>
 
 <h3>Credits</h3>
 <ul>
