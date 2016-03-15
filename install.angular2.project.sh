@@ -53,9 +53,14 @@ else
   
   # install ng2-bootstrap
   npm install ng2-bootstrap jquery --save
+  
+  # Install typings for jquery and moment. Add --ambient to install type definitions from DefinitelyTyped
+  # https://github.com/DefinitelyTyped/DefinitelyTyped
+  # https://github.com/DefinitelyTyped/tsd/issues/269
+  # https://github.com/typings/typings  
   yes Y | typings install moment --save
-  sudo npm install -g tsd
-  tsd install jquery --save
+  yes Y | typings install jquery --save --ambient
+
   cd /var/www/app && sudo chmod 775 $1 && cd $1
   
   # download the bootstrap 3 and 4 default settings used by bootstrap loader
