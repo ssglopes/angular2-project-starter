@@ -11,9 +11,10 @@ It will also install a virtual host into the /etc/apache2 directory if the app.c
 It will add the projectname to the /etc/hosts file.
 It will start download all required files needed for the angular 2 project inside /var/www/app/[project-name(string)]/
 </p>
+<strong>Toggle between bootstrap 3 and 4</strong><br />
 <p>
-The script can be executed again to just use a different version of bootstrap eg. 3 or 4. 
-In this case it will modify some files and remove package not longer needed followed by downloading required packages from npm.
+The script can be executed again to only switch between bootstrap 3 or 4. 
+In this case some files will be modified and unneeded packages will be removed followed by downloading newly required packages from npm.
 </p>
 <ul>
 <li>Replace [project-name(string)] below with the project name.</li>
