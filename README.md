@@ -4,7 +4,7 @@
 <p>Having a startup project based on <a href="https://angular.io/" target="_blank">Angular 2</a> supporting <a href="https://jquery.com/" target="_blank">jQuery</a> (for stuff Angular 2 is missing), 
 <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3</a> or <a href="http://v4-alpha.getbootstrap.com/" target="_blank">Bootstrap 4</a>, 
 <a href="http://valor-software.com/ng2-bootstrap/" target="_blank">ng2-bootstrap</a> and 
-<a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</strong> in case using bootstrap 4. Bootstrap 3 uses 
+<a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> in case using bootstrap 4. Bootstrap 3 uses 
 <a href="http://getbootstrap.com/components/" target="_blank">Glyphicons</a>.</p>
 
 <h3>Installation</h3>
