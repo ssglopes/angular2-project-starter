@@ -24,9 +24,10 @@ Only some files will be modified and unneeded packages will be removed followed 
 <li>Replace [project-name(string)] below with the project name.</li>
 <li>Replace [bootstrap-version(int)] below with the bootstrap version to use for the project, either 3 or 4.</li>
 </ul>
+<p>
 Open a terminal and execute:<br />
 <code>wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/install.angular2.project.sh -P /var/www/ && chmod +x /var/www/install.angular2.project.sh && ./install.angular2.project.sh [project-name(string)] [bootstrap-version(int)]</code>
-<br />
+</p>
 <p>
 After execution has finished open a browser and go to either:<br />
 For development against webpack server: http://localhost:8080/<br />
