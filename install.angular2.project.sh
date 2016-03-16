@@ -1,5 +1,7 @@
 #!/bin/bash
 
+new_project = false
+
 if [ -d /var/www/app/$1 ]   
 then
 
@@ -8,7 +10,9 @@ then
   echo 'Only change to bootstrap version: ' $2   
   cd /var/www/app/$1
 
-else 
+else
+ 
+  new_project = true
 
   if [ -d /var/www/app ] 
   then
@@ -91,7 +95,8 @@ else
   
   # add bootstrap variable which can be used by app
   grep -q 'var\ vBootstrap\ =\ 4;' webpack.config.js || sed -i '5ivar\ vBootstrap\ =\ 4;' webpack.config.js
-  
+  grep -q "var\ siteName\ =\ 'www';" webpack.config.js || sed -i "6ivar\ siteName\ =\ 'www';" webpack.config.js
+    
   # add webpack providerPlugin on line 11 of webpack.config.js
   grep -q "var ProvidePlugin\ =\ require('webpack/lib/ProvidePlugin');" webpack.config.js || sed -i "11ivar ProvidePlugin\ =\ require('webpack/lib/ProvidePlugin');" webpack.config.js
   
@@ -105,13 +110,26 @@ else
   grep -q "import\ 'font-awesome-sass-loader';" src/vendor.ts || sed -i "17iimport\ 'font-awesome-sass-loader';" src/vendor.ts
   
   # change the default production directory where all files will be transpiled to 
-  mkdir _public && cd _public && mkdir www && cd ../
-  sed -i "s/'dist'/'_public\/www'/g" webpack.config.js 
-     
+  mkdir public && cd public && mkdir www && mkdir mobile && mkdir api && cd ../
+  sed -i "s/'dist'/'..\/..\/public\/'+siteName/g" webpack.config.js 
+  
+  mkdir source && cd source && mkdir www && mkdir mobile && mkdir api && cd ../
+
 fi
 
-if [ $2 == "3" ] 
+if [ $2 == "4" ] 
 then
+
+  # its bootstrap 4 to be installed
+  npm uninstall bootstrap --save
+  npm install bootstrap@4.0.0-alpha.2 font-awesome --save
+  npm install font-awesome-sass-loader tether --save-dev    
+  sed -i "s/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS3;/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS4;/g" src/bootstrap.ts
+  sed -i "s/var\ vBootstrap\ =\ 3;/var\ vBootstrap\ = 4;\ /g" webpack.config.js
+  rm -rf .bootstraprc && cp .bootstraprc-4-default .bootstraprc
+  sed -i "s/||\ Ng2BootstrapTheme.BS3/||\ Ng2BootstrapTheme.BS4/g" node_modules/ng2-bootstrap/components/ng2-bootstrap-config.ts
+
+else
 
   # its bootstrap 3 to be installed
   npm uninstall bootstrap@4.0.0-alpha.2 font-awesome --save
@@ -120,24 +138,61 @@ then
   sed -i "/import\ 'font-awesome-sass-loader';/d" src/vendor.ts
   sed -i "s/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS4;/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS3;/g" src/bootstrap.ts
   sed -i "s/var\ vBootstrap\ =\ 4;/var\ vBootstrap\ = 3;\ /g" webpack.config.js
-  rm -rf .bootstraprc && copy .bootstraprc-3-default .bootstraprc
+  rm -rf .bootstraprc && cp .bootstraprc-3-default .bootstraprc
   sed -i "s/||\ Ng2BootstrapTheme.BS4/||\ Ng2BootstrapTheme.BS3/g" node_modules/ng2-bootstrap/components/ng2-bootstrap-config.ts
-
-else
-
-  # its bootstrap 4 to be installed
-  npm uninstall bootstrap --save
-  npm install bootstrap@4.0.0-alpha.2 font-awesome --save
-  npm install font-awesome-sass-loader tether --save-dev    
-  sed -i "s/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS3;/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS4;/g" src/bootstrap.ts
-  sed -i "s/var\ vBootstrap\ =\ 3;/var\ vBootstrap\ = 4;\ /g" webpack.config.js
-  rm -rf .bootstraprc && copy .bootstraprc-4-default .bootstraprc
-  sed -i "s/||\ Ng2BootstrapTheme.BS3/||\ Ng2BootstrapTheme.BS4/g" node_modules/ng2-bootstrap/components/ng2-bootstrap-config.ts
-
+  
 fi
 
-# transpile the example code to _public/www
-npm run build
+if [ "$new_project" = true ]
+then
 
-# start the webserver and open http://localhost:8080/
+  cp src source/www/
+  cp src source/mobile/
+  cp webpack.config.js source/www/webpack.config.js
+  
+  ln -s /var/www/app/$1/node_modules source/www/node_modules
+  ln -s /var/www/app/$1/typings source/www/typings
+  ln -s /var/www/app/$1/karma.conf.js source/www/karma.conf.js
+  ln -s /var/www/app/$1/karma-shim.js source/www/karma-shim.js
+  ln -s /var/www/app/$1/LICENSE source/www/LICENSE
+  ln -s /var/www/app/$1/package.json source/www/package.json
+  ln -s /var/www/app/$1/protractor.conf.js source/www/protractor.conf.js
+  ln -s /var/www/app/$1/README.md source/www/README.md
+  ln -s /var/www/app/$1/tsconfig.json source/www/tsconfig.json
+  ln -s /var/www/app/$1/tslint.json source/www/tslint.json
+  ln -s /var/www/app/$1/typedoc.json source/www/typedoc.json
+  ln -s /var/www/app/$1/typings.json source/www/typings.json
+  ln -s /var/www/app/$1/.bootstraprc-3-default source/www/.bootstraprc-3-default
+  ln -s /var/www/app/$1/.bootstraprc-4-default source/www/.bootstraprc-4-default
+  ln -s /var/www/app/$1/.editorconfig source/www/.editorconfig
+  ln -s /var/www/app/$1/.gitignore source/www/.gitignore
+    
+  cp webpack.config.js source/mobile/webpack.config.js
+  sed -i "s/var\ siteName\ =\ 'www';/var\ siteName\ =\ 'mobile';\ /g" source/mobile/webpack.config.js
+  ln -s /var/www/app/$1/node_modules source/mobile/node_modules
+  ln -s /var/www/app/$1/typings source/mobile/typings
+  ln -s /var/www/app/$1/karma.conf.js source/mobile/karma.conf.js
+  ln -s /var/www/app/$1/karma-shim.js source/mobile/karma-shim.js
+  ln -s /var/www/app/$1/LICENSE source/mobile/LICENSE
+  ln -s /var/www/app/$1/package.json source/mobile/package.json
+  ln -s /var/www/app/$1/protractor.conf.js source/mobile/protractor.conf.js
+  ln -s /var/www/app/$1/README.md source/mobile/README.md
+  ln -s /var/www/app/$1/tsconfig.json source/mobile/tsconfig.json
+  ln -s /var/www/app/$1/tslint.json source/mobile/tslint.json
+  ln -s /var/www/app/$1/typedoc.json source/mobile/typedoc.json
+  ln -s /var/www/app/$1/typings.json source/mobile/typings.json
+  ln -s /var/www/app/$1/.bootstraprc-3-default source/mobile/.bootstraprc-3-default
+  ln -s /var/www/app/$1/.bootstraprc-4-default source/mobile/.bootstraprc-4-default
+  ln -s /var/www/app/$1/.editorconfig source/mobile/.editorconfig
+  ln -s /var/www/app/$1/.gitignore source/mobile/.gitignore
+  
+  rm -rf src
+  rm -rf webpack.config.js  
+  
+fi
+
+# transpile the example code to public/www
+cd source/mobile && npm run build && cd ../www && npm run build
+
+# start the webserver and open http://localhost:8080/ for www
 npm start
