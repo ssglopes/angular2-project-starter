@@ -1,6 +1,6 @@
 #!/bin/bash
 
-new_project = false
+NEW_PROJECT=false
 
 if [ -d /var/www/app/$1 ]   
 then
@@ -12,7 +12,7 @@ then
 
 else
  
-  new_project = true
+  NEW_PROJECT=true
 
   if [ -d /var/www/app ] 
   then
@@ -143,15 +143,15 @@ else
   
 fi
 
-if [ "$new_project" = true ]
+if [ $NEW_PROJECT = true ]
 then
 
-  cp src source/www/
-  cp src source/mobile/
+  cp -ar src source/www/
+  cp -ar src source/mobile/
   cp webpack.config.js source/www/webpack.config.js
   
-  ln -s /var/www/app/$1/node_modules source/www/node_modules
-  ln -s /var/www/app/$1/typings source/www/typings
+  ln -s /var/www/app/$1/node_modules/ source/www/
+  ln -s /var/www/app/$1/typings/ source/www/
   ln -s /var/www/app/$1/karma.conf.js source/www/karma.conf.js
   ln -s /var/www/app/$1/karma-shim.js source/www/karma-shim.js
   ln -s /var/www/app/$1/LICENSE source/www/LICENSE
@@ -169,8 +169,8 @@ then
     
   cp webpack.config.js source/mobile/webpack.config.js
   sed -i "s/var\ siteName\ =\ 'www';/var\ siteName\ =\ 'mobile';\ /g" source/mobile/webpack.config.js
-  ln -s /var/www/app/$1/node_modules source/mobile/node_modules
-  ln -s /var/www/app/$1/typings source/mobile/typings
+  ln -s /var/www/app/$1/node_modules/ source/mobile/
+  ln -s /var/www/app/$1/typings/ source/mobile/
   ln -s /var/www/app/$1/karma.conf.js source/mobile/karma.conf.js
   ln -s /var/www/app/$1/karma-shim.js source/mobile/karma-shim.js
   ln -s /var/www/app/$1/LICENSE source/mobile/LICENSE
