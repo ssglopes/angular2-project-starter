@@ -41,6 +41,7 @@ else
   
   # directory does not exist so let's start basic angular 2 installation
   echo '127.0.0.1    www.'$1'.app' | sudo tee -a /etc/hosts 
+  echo '127.0.0.1    mobile.'$1'.app' | sudo tee -a /etc/hosts 
   echo 'Added to /etc/hosts file!'
   
   cd /var/www/app
@@ -50,7 +51,7 @@ else
   
   # replace beta.9 with beta.8 to avoid conflict with other libraries
   sed -i 's/"angular2": "2.0.0-beta.9",/"angular2": "2.0.0-beta.8",/g' package.json
-  npm install 
+  npm cache clean && npm install 
   
   # install bootstrap required packages and save it to package.json devDependencies
   npm install bootstrap-loader bootstrap-sass resolve-url-loader --save-dev    
