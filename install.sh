@@ -54,10 +54,6 @@ yes Y | typings install jquery --save --ambient
 cd /var/www/app && sudo chmod 775 $1 && cd $1
 chmod +x bootstrap.sh
 
-# download the bootstrap 3 and 4 default settings used by bootstrap loader
-wget https://raw.githubusercontent.com/shakacode/bootstrap-loader/master/.bootstraprc-3-default
-wget https://raw.githubusercontent.com/shakacode/bootstrap-loader/master/.bootstraprc-4-default
-
 # download extra code chunk to insert into webpack.config.js to load appropiate packages
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/add.to.webpack.config.js
 
@@ -80,6 +76,9 @@ mkdir src/app/styles/home src/app/styles/about
 mkdir src/app/templates/home src/app/templates/about
 
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/.bootstraprc
+wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/.bootstraprc-3-default
+wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/.bootstraprc-4-default
+
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/app.scss -P src/style/
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/customizations.scss -P src/style/
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/pre-customizations.scss -P src/style/
