@@ -3,16 +3,17 @@ import {FORM_DIRECTIVES} from 'angular2/common';
 import {Alert, DATEPICKER_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import * as moment from 'moment'; // for dates in calender
 
+
 @Component({
   selector: 'home',
   directives: [...FORM_DIRECTIVES, Alert, DATEPICKER_DIRECTIVES],
   pipes: [],
-  styles: [require('./home.scss')],
-  template: require('./home.html')
+  template: require('../../templates/home/home.html'),
+  styles: [require('../../styles/home/home.scss')]
 })
 
 export class Home implements OnInit {
-  public date:Date = new Date();
+  public date:Date = new Date ();
 
   constructor() {
     // Do stuff
@@ -23,8 +24,7 @@ export class Home implements OnInit {
   }
 
   private today() {
-    $("#hello").delay(10).text('Jquery WORKS');
+    $("#test-jquery").delay(10).text('Hello, world of Jquery!');
     this.date = new Date();
   }
 }
-
