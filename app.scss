@@ -1,0 +1,56 @@
+// styles in src/style directory are applied to the whole page
+body {
+  background: lightgrey;
+}
+
+.container {
+  background: darkgrey;
+  padding: 15px;
+}
+
+a {
+  color: red;
+}
+
+.jumbotron {
+  margin: 52px;
+}
+a.btn {
+  color: white !important;
+}
+header {
+  border-bottom: 2px solid #000;
+  background-color: white;
+  padding: 10px 0px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+main {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  .col-items {
+    margin: 70px 0;
+    .col-item {
+      font-size: 50px;
+      color: green;
+      text-align: center;
+
+      .text {
+        display: block;
+        font-size: 30px;
+        color: #FFF;
+      }
+    }
+  }
+}
+
+footer {
+  border-top: 2px solid #000;
+  background-color: white;
+  padding: 10px 0px;
+  text-align: center;
+}
