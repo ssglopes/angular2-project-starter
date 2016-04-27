@@ -22,7 +22,7 @@ The command will download two shell scripts and execute them.</p>
 </ul>
 <p>
 Open a terminal and execute:<br />
-<code>wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/install.sh -P /var/www/ && chmod +x /var/www/install.sh && ./install.sh [project-name(string)]</code>
+<code>wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/install.sh -P /var/www/ && chmod +x /var/www/install.sh && /var/www/install.sh [project-name(string)]</code>
 </p>
 <p>
 After execution has finished open a browser and go to either:<br />

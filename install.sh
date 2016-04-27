@@ -52,6 +52,7 @@ yes Y | typings install moment --save
 yes Y | typings install jquery --save --ambient
 
 cd /var/www/app && sudo chmod 775 $1 && cd $1
+wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/bootstrap.sh
 chmod +x bootstrap.sh
 
 # download extra code chunk to insert into webpack.config.js to load appropiate packages
