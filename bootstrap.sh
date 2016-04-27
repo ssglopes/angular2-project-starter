@@ -27,3 +27,7 @@ else
   sed -i "s/||\ Ng2BootstrapTheme.BS4/||\ Ng2BootstrapTheme.BS3/g" node_modules/ng2-bootstrap/components/ng2-bootstrap-config.ts
   
 fi
+
+sed -i "s/preBootstrapCustomizations,/preBootstrapCustomizations.replace('?', global.siteName),/g" node_modules/bootstrap-loader/lib/bootstrap.styles.loader.js
+sed -i "s/bootstrapCustomizations,/bootstrapCustomizations.replace('?', global.siteName),/g" node_modules/bootstrap-loader/lib/bootstrap.styles.loader.js
+sed -i "s/appStyles,/appStyles.replace('?', global.siteName),/g" node_modules/bootstrap-loader/lib/bootstrap.styles.loader.js

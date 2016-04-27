@@ -60,6 +60,10 @@ wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/
 # add marker where code chunk has to be inserted
 sed -i 's/return\ config;/\/\/bootstrap\nreturn\ config;/g' webpack.config.js
 
+# rename style dir to styles for consistence and rename the path in the config as well
+mv src/style src/styles
+sed -i "s/style/styles/g" webpack.config.js
+
 # insert code chunk and remove temp file
 sed -i '/\/\/bootstrap/radd.to.webpack.config.js' webpack.config.js 
 rm -rf add.to.webpack.config.js
@@ -79,9 +83,9 @@ wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/.bootstraprc-3-default
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/.bootstraprc-4-default
 
-wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/app.scss -P src/style/
-wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/customizations.scss -P src/style/
-wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/pre-customizations.scss -P src/style/
+wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/app.scss -P src/styles/
+wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/customizations.scss -P src/styles/
+wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/pre-customizations.scss -P src/styles/
 
 # download the new default files with updated example code
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/home.ts -P src/app/components/home/
@@ -99,7 +103,7 @@ grep -q "Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS4;" src/bootstrap.ts |
 
 # add bootstrap variable which can be used by app
 grep -q 'var\ vBootstrap\ =\ 4;' webpack.config.js || sed -i '5ivar\ vBootstrap\ =\ 4;' webpack.config.js
-grep -q "var\ siteName\ =\ 'www';" webpack.config.js || sed -i "6ivar\ siteName\ =\ 'www';" webpack.config.js
+grep -q "global.siteName\ =\ 'www';" webpack.config.js || sed -i "6iglobal.siteName\ =\ 'www';" webpack.config.js
 
 # add webpack providerPlugin on line 11 of webpack.config.js
 grep -q "var ProvidePlugin\ =\ require('webpack/lib/ProvidePlugin');" webpack.config.js || sed -i "11ivar ProvidePlugin\ =\ require('webpack/lib/ProvidePlugin');" webpack.config.js
@@ -132,10 +136,12 @@ subdomains=( www admin mobile )
 for i in "${subdomains[@]}"
 do
 	cp -ar src source/$i/
+	cp -ar node_modules source/$i/
 	cp webpack.config.js source/$i/webpack.config.js
+	
 	sed -i "s/var\ siteName\ =\ 'www';/var\ siteName\ =\ '"$i"';\ /g" source/$i/webpack.config.js
 	
-	ln -s /var/www/app/$1/node_modules/ source/$i/
+	#ln -s /var/www/app/$1/node_modules/ source/$i/
 	ln -s /var/www/app/$1/typings/ source/$i/
 	ln -s /var/www/app/$1/ts/core/ source/$i/src/app/components/
 	ln -s /var/www/app/$1/karma.conf.js source/$i/karma.conf.js
