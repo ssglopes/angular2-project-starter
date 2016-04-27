@@ -12,7 +12,7 @@ then
   sed -i "s/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS3;/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS4;/g" src/bootstrap.ts
   sed -i "s/var\ vBootstrap\ =\ 3;/var\ vBootstrap\ = 4;\ /g" webpack.config.js
   rm -rf .bootstraprc && cp .bootstraprc-4-default .bootstraprc
-  sed -i "s/||\ Ng2BootstrapTheme.BS3/||\ Ng2BootstrapTheme.BS4/g" node_modules/ng2-bootstrap/components/ng2-bootstrap-config.ts
+  sed -i "s/||\ Ng2BootstrapTheme.BS3/||\ Ng2BootstrapTheme.BS4/g" node_modules/ng2-bootstrap/components/ng2-bootstrap-config.js
 
 else
 
@@ -24,7 +24,7 @@ else
   sed -i "s/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS4;/Ng2BootstrapConfig.theme\ =\ Ng2BootstrapTheme.BS3;/g" src/bootstrap.ts
   sed -i "s/var\ vBootstrap\ =\ 4;/var\ vBootstrap\ = 3;\ /g" webpack.config.js
   rm -rf .bootstraprc && cp .bootstraprc-3-default .bootstraprc
-  sed -i "s/||\ Ng2BootstrapTheme.BS4/||\ Ng2BootstrapTheme.BS3/g" node_modules/ng2-bootstrap/components/ng2-bootstrap-config.ts
+  sed -i "s/||\ Ng2BootstrapTheme.BS4/||\ Ng2BootstrapTheme.BS3/g" node_modules/ng2-bootstrap/components/ng2-bootstrap-config.js
   
 fi
 
