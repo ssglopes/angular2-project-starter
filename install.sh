@@ -128,7 +128,7 @@ mkdir public/www public/mobile public/api public/admin
 mkdir source/www source/mobile source/api source/admin
 mkdir ts/core ts/core/classes ts/core/components ts/core/interfaces ts/core/pipes ts/core/services
 
-var/www/app/$1/bootstrap.sh '4'
+/var/www/app/$1/bootstrap.sh '4'
 
 # create an array with the subdomains to create
 subdomains=( www admin mobile )
