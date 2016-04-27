@@ -62,6 +62,7 @@ wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/
 sed -i 's/return\ config;/\/\/bootstrap\nreturn\ config;/g' webpack.config.js
 
 # rename style dir to styles for consistence and rename the path in the config as well
+rm -rf src/style/app.scss
 mv src/style src/styles
 sed -i "s/style/styles/g" webpack.config.js
 
@@ -137,12 +138,11 @@ subdomains=( www admin mobile )
 for i in "${subdomains[@]}"
 do
 	cp -ar src source/$i/
-	cp -ar node_modules source/$i/
 	cp webpack.config.js source/$i/webpack.config.js
 	
 	sed -i "s/var\ siteName\ =\ 'www';/var\ siteName\ =\ '"$i"';\ /g" source/$i/webpack.config.js
 	
-	#ln -s /var/www/app/$1/node_modules/ source/$i/
+	ln -s /var/www/app/$1/node_modules/ source/$i/
 	ln -s /var/www/app/$1/typings/ source/$i/
 	ln -s /var/www/app/$1/ts/core/ source/$i/src/app/components/
 	ln -s /var/www/app/$1/karma.conf.js source/$i/karma.conf.js
