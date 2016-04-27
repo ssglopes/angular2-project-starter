@@ -53,7 +53,7 @@ yes Y | typings install jquery --save --ambient
 
 cd /var/www/app && sudo chmod 775 $1 && cd $1
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/bootstrap.sh
-chmod +x bootstrap.sh
+chmod +x /var/www/app/$1/bootstrap.sh
 
 # download extra code chunk to insert into webpack.config.js to load appropiate packages
 wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/add.to.webpack.config.js
@@ -128,7 +128,7 @@ mkdir public/www public/mobile public/api public/admin
 mkdir source/www source/mobile source/api source/admin
 mkdir ts/core ts/core/classes ts/core/components ts/core/interfaces ts/core/pipes ts/core/services
 
-./bootstrap.sh '4'
+var/www/app/$1/bootstrap.sh '4'
 
 # create an array with the subdomains to create
 subdomains=( www admin mobile )
