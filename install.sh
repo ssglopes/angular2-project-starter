@@ -47,8 +47,9 @@ npm install ng2-bootstrap jquery --save
 # Install typings for jquery and moment. Add --ambient to install type definitions from DefinitelyTyped
 # https://github.com/DefinitelyTyped/DefinitelyTyped
 # https://github.com/DefinitelyTyped/tsd/issues/269
-# https://github.com/typings/typings  
-yes Y | typings install moment --save
+# https://github.com/typings/typings
+echo '...Select NPM for moment below followed by enter...'  
+typings install moment --save
 yes Y | typings install jquery --save --ambient
 
 cd /var/www/app && sudo chmod 775 $1 && cd $1
@@ -60,6 +61,9 @@ wget https://raw.githubusercontent.com/ssglopes/angular2-project-starter/master/
 
 # add marker where code chunk has to be inserted
 sed -i 's/return\ config;/\/\/bootstrap\nreturn\ config;/g' webpack.config.js
+
+# delete app.sccs line from app.ts
+sed -i "/import\ '..\/style\/app.scss';/d" src/app/app.ts
 
 # rename style dir to styles for consistence and rename the path in the config as well
 rm -rf src/style/app.scss
@@ -111,13 +115,13 @@ grep -q "global.siteName\ =\ 'www';" webpack.config.js || sed -i "6iglobal.siteN
 grep -q "var ProvidePlugin\ =\ require('webpack/lib/ProvidePlugin');" webpack.config.js || sed -i "11ivar ProvidePlugin\ =\ require('webpack/lib/ProvidePlugin');" webpack.config.js
 
 # add code to line 15 to import jquery so it will be loaded
-grep -q "import\ 'jquery';" src/vendor.ts || sed -i "15iimport\ 'jquery';" src/vendor.ts
+grep -q "import\ 'jquery';" src/vendor.ts || echo "import 'jquery';" >> src/vendor.ts
 
 # add code to line 16 to import bootstrap-loader so it will be loaded
-grep -q "import\ 'bootstrap-loader';" src/vendor.ts || sed -i "16iimport\ 'bootstrap-loader';" src/vendor.ts
+grep -q "import\ 'bootstrap-loader';" src/vendor.ts || echo "import 'bootstrap-loader';" >> src/vendor.ts
 
 # add code to line 17 to import font-awesome-sass-loader so it will be loaded, incase bootstrap 4 will be used
-grep -q "import\ 'font-awesome-sass-loader';" src/vendor.ts || sed -i "17iimport\ 'font-awesome-sass-loader';" src/vendor.ts
+grep -q "import\ 'font-awesome-sass-loader';" src/vendor.ts || echo "import 'font-awesome-sass-loader';" >> src/vendor.ts
 
 # change the default production directory where all files will be transpiled to 
 

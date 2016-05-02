@@ -1,12 +1,12 @@
 import {Component, OnInit} from 'angular2/core';
 import {FORM_DIRECTIVES} from 'angular2/common';
-import {Alert, DATEPICKER_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+import {DATEPICKER_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import * as moment from 'moment'; // for dates in calender
 
 
 @Component({
   selector: 'home',
-  directives: [...FORM_DIRECTIVES, Alert, DATEPICKER_DIRECTIVES],
+  directives: [...FORM_DIRECTIVES, DATEPICKER_DIRECTIVES],
   pipes: [],
   template: require('../../templates/home/home.html'),
   styles: [require('../../styles/home/home.scss')]
