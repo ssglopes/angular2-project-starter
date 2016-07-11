@@ -23,7 +23,7 @@ export class Home implements OnInit {
     console.log('Hello Home');
   }
 
-  private today() {
+  public today() {
     $("#test-jquery").delay(10).text('Hello, world of Jquery!');
     this.date = new Date();
   }

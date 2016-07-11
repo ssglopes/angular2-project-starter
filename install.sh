@@ -148,21 +148,21 @@ do
 	
 	ln -s /var/www/app/$1/node_modules/ source/$i/
 	ln -s /var/www/app/$1/typings/ source/$i/
-	ln -s /var/www/app/$1/ts/core/ source/$i/src/app/components/
+	ln -s /var/www/app/$1/ts/core/ source/$i/src/
 	ln -s /var/www/app/$1/karma.conf.js source/$i/karma.conf.js
 	ln -s /var/www/app/$1/karma-shim.js source/$i/karma-shim.js
-	#ln -s /var/www/app/$1/LICENSE source/$i/LICENSE
+	ln -s /var/www/app/$1/LICENSE source/$i/LICENSE
 	ln -s /var/www/app/$1/package.json source/$i/package.json
 	ln -s /var/www/app/$1/protractor.conf.js source/$i/protractor.conf.js
-	#ln -s /var/www/app/$1/README.md source/$i/README.md
+	ln -s /var/www/app/$1/README.md source/$i/README.md
 	ln -s /var/www/app/$1/tsconfig.json source/$i/tsconfig.json
 	ln -s /var/www/app/$1/tslint.json source/$i/tslint.json
 	ln -s /var/www/app/$1/typedoc.json source/$i/typedoc.json
 	ln -s /var/www/app/$1/typings.json source/$i/typings.json
-	#ln -s /var/www/app/$1/.bootstraprc-3-default source/$i/.bootstraprc-3-default
-	#ln -s /var/www/app/$1/.bootstraprc-4-default source/$i/.bootstraprc-4-default
+	ln -s /var/www/app/$1/.bootstraprc-3-default source/$i/.bootstraprc-3-default
+	ln -s /var/www/app/$1/.bootstraprc-4-default source/$i/.bootstraprc-4-default
 	ln -s /var/www/app/$1/.editorconfig source/$i/.editorconfig
-	#ln -s /var/www/app/$1/.gitignore source/$i/.gitignore
+	ln -s /var/www/app/$1/.gitignore source/$i/.gitignore
 	echo '127.0.0.1    '$i'.'$1'.app' | sudo tee -a /etc/hosts
 done
 
