@@ -14,12 +14,12 @@
  * @link http://findproxyforurl.com/example-pac-file/
  */
 function FindProxyForURL(url, host){
-    if(shExpMatch(host, "test2.videoslots.com")) {
-    //if (shExpMatch(url, "https:**")) {
+    //if(shExpMatch(host, "test2.videoslots.com")) {
+    if (shExpMatch(url, "https:**")) {
         // Do proxy
         //return "PROXY test2.videoslots.com:8080";
         //return "PROXY 1.1.1.65:80";
         // http://dev.chromium.org/developers/design-documents/secure-web-proxy
-        return "HTTPS https://88.208.221.127:8080";
+        return "HTTPS 88.208.221.127:8080";
     }
 }
