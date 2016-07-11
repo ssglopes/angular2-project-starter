@@ -17,9 +17,9 @@ function FindProxyForURL(url, host){
     if(shExpMatch(host, "test2.videoslots.com")) {
     //if (shExpMatch(url, "https:**")) {
         // Do proxy
-        //return "PROXY 217.174.248.203:8080";
+        return "PROXY test2.videoslots.com:8080";
         //return "PROXY 1.1.1.65:80";
         // http://dev.chromium.org/developers/design-documents/secure-web-proxy
-        return "HTTPS test2.videoslots.com:8080";
+        //return "HTTPS test2.videoslots.com:8080";
     }
 }
