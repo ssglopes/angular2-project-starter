@@ -17,8 +17,8 @@ function FindProxyForURL(url, host){
     if(shExpMatch(host, "test2*")) {
     //if (shExpMatch(url, "http:**")) {
         // Do proxy
-        return "PROXY 1.1.1.65:8080";
+        //return "PROXY 1.1.1.65:8080";
         // http://dev.chromium.org/developers/design-documents/secure-web-proxy
-        //return "PROXY 88.208.221.127:8080";
+        return "PROXY 88.208.221.127:8080";
     }
 }
