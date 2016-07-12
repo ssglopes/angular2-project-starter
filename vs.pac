@@ -15,7 +15,7 @@
  */
 function FindProxyForURL(url, host){
     //if(shExpMatch(host, "test2.videoslots.com")) {
-    if (shExpMatch(url, "https:**")) {
+    if (shExpMatch(url, "http:**")) {
         // Do proxy
         //return "PROXY test2.videoslots.com:8080";
         //return "PROXY 1.1.1.65:80";
