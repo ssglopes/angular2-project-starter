@@ -14,8 +14,8 @@
  * @link http://findproxyforurl.com/example-pac-file/
  */
 function FindProxyForURL(url, host){
-    //if(shExpMatch(host, "test2.videoslots.com")) {
-    if (shExpMatch(url, "http:**")) {
+    if(shExpMatch(host, "test2*")) {
+    //if (shExpMatch(url, "http:**")) {
         // Do proxy
         //return "PROXY test2.videoslots.com:8080";
         //return "PROXY 1.1.1.65:80";
