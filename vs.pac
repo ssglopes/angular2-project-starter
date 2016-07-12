@@ -14,8 +14,8 @@
  * @link http://findproxyforurl.com/example-pac-file/
  */
 function FindProxyForURL(url, host){
-    if(shExpMatch(host, "test2*")) {
-    //if (shExpMatch(url, "http:**")) {
+    //if(shExpMatch(host, "test2*")) {
+    if (shExpMatch(url, "https:**")) {
         // Do proxy
         //return "PROXY 1.1.1.65:8080";
         // http://dev.chromium.org/developers/design-documents/secure-web-proxy
