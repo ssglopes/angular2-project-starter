@@ -20,6 +20,7 @@ function FindProxyForURL(url, host){
         //return "PROXY 1.1.1.65:8080";
         // http://dev.chromium.org/developers/design-documents/secure-web-proxy
         //return "HTTPS test2.videoslots.com";
-        return "HTTPS ru.videoslots.com:8081";
+        //return "HTTPS ru.videoslots.com:8081";
+        return "HTTPS 217.174.248.203:8081";
     }
 }
