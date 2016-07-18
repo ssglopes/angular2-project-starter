@@ -20,7 +20,7 @@ function FindProxyForURL(url, host){
         //return "PROXY 1.1.1.65:8080";
         // http://dev.chromium.org/developers/design-documents/secure-web-proxy
         //return "HTTPS test2.videoslots.com";
-        return "HTTPS ru.videoslots.com:8081";
-        //return "HTTPS 217.174.248.203:8081"; // generate ERR_PROXY_CERTIFICATE_INVALID because of ip string
+        //return "HTTPS ru.videoslots.com:8081"; // generate ERR_TUNNEL_CONNECTION_FAILED
+        return "HTTPS 217.174.248.203:1443"; // generate ERR_PROXY_CERTIFICATE_INVALID because of ip string
     }
 }
